@@ -12,9 +12,25 @@ struct HomeView: View {
         ZStack{
             Color.black.ignoresSafeArea()
             VStack {
-             
+                Text("Bienvenid@")
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .bold()
+                    .padding(.leading, 150)
+                    .frame(alignment: .trailing)
+                Text("entrenador@")
+                    .foregroundStyle(.white)
+                    .font(.subheadline)
+                    .bold()
+                    .padding(.leading, 200)
+                    .frame(alignment: .trailing)
+                
+                ZStack{
+                    Image("FondoPokeball")
+                }
+                
             }
-        }   
+        }
     }
 }
 

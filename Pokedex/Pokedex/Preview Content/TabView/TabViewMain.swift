@@ -14,7 +14,9 @@ struct TabViewMain: View {
                 Label("Notificaciones", systemImage: "envelope.fill")
             }
             HomeView().tabItem{
-                Label("Home", systemImage: "house.fill")
+                Label("", image: "pokebola")
+                    
+                    
             }
             PerfilView().tabItem{
                 Label("Perfil", systemImage: "person.fill")
