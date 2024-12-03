@@ -11,7 +11,7 @@ struct PerfilView: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color.red.opacity(0.4)
+                Color.black
                     .edgesIgnoringSafeArea(.all)
                 List(lista){ item in
                     HStack{
