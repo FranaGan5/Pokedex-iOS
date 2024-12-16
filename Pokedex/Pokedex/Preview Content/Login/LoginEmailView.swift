@@ -14,7 +14,7 @@ struct LoginEmailView: View {
         ZStack{
             Color.cyan
                 .ignoresSafeArea()
-                .opacity(0.2)
+                .opacity(0.3)
             VStack{
                 Image("pikachu-01")
                     .resizable()

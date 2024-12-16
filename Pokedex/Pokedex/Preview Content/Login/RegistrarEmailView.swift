@@ -14,7 +14,7 @@ struct RegistrarEmailView: View {
         ZStack{
             Color.cyan
                 .ignoresSafeArea()
-                .opacity(0.2)
+                .opacity(0.3)
             Image("bulbasur")
                 .resizable()
                 .frame(width: 100, height: 100)
