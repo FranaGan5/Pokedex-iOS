@@ -23,6 +23,7 @@ struct AuthenticationView: View {
         ZStack{
             Color.yellow
                 .ignoresSafeArea(.all)
+                .opacity(0.3)
             VStack{
                 Spacer()
                 Image("pokebola")
@@ -54,9 +55,9 @@ struct AuthenticationView: View {
         .sheet(item: $authenticationSheetView){ sheet in
             switch sheet{
             case .registro:
-                Text("Registro")
+                RegistrarEmailView()
             case .login:
-                Text("Login")
+                LoginEmailView()
             }
         }
     }
