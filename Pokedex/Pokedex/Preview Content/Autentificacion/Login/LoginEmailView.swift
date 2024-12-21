@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct LoginEmailView: View {
+    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @State var textFieldEmail: String = ""
     @State var textFieldContrasena: String = ""
     var body: some View {
         ZStack{
-            Color.cyan
+            Color(Colors.azulPastel.rawValue)
                 .ignoresSafeArea()
                 .opacity(0.3)
             VStack{
@@ -44,11 +45,19 @@ struct LoginEmailView: View {
                     TextField("Contraseña", text: $textFieldContrasena)
                     
                     Button("Login"){
-                        print("Login")
+                        autentificacionViewModel.login(email: textFieldEmail, contrasena: textFieldContrasena)
                     }
                     .padding(.top, 20)
                     .buttonStyle(.bordered)
                     .tint(.black)
+                    if let mensajeError = autentificacionViewModel.mensajeError{
+                        Text(mensajeError)
+                            .bold()
+                            .font(.body)
+                            .foregroundColor(.red)
+                            .padding(.top, 20)
+                        
+                    }
                 }
                 .textFieldStyle(.roundedBorder)
                 .padding(.horizontal, 64)
@@ -59,5 +68,5 @@ struct LoginEmailView: View {
     }
 
 #Preview {
-    LoginEmailView()
+    LoginEmailView(autentificacionViewModel: AutentificacionViewModel())
 }

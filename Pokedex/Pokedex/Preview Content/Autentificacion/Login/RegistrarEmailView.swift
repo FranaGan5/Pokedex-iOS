@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct RegistrarEmailView: View {
+    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
         @State var textFieldEmail: String = ""
         @State var textFieldContrasena: String = ""
     var body: some View {
         ZStack{
-            Color.cyan
+            Color(Colors.azulPastel.rawValue)
                 .ignoresSafeArea()
                 .opacity(0.3)
             Image("bulbasur")
@@ -43,11 +44,18 @@ struct RegistrarEmailView: View {
                     .tint(.green)
                 
                 Button("Aceptar"){
-                    print("Aceptar")
+                    autentificacionViewModel.crearNuevoUsuario(email: textFieldEmail, contrasena: textFieldContrasena)
                 }
                 .padding(.top, 20)
                 .buttonStyle(.bordered)
                 .tint(.green)
+                if let mensajeError = autentificacionViewModel.mensajeError{
+                    Text(mensajeError)
+                        .bold()
+                        .font(.body)
+                        .foregroundColor(.red)
+                        .padding(.top, 20)
+                }
             }
             .textFieldStyle(.roundedBorder)
             .padding(.horizontal, 64)
@@ -58,5 +66,5 @@ struct RegistrarEmailView: View {
 }
 
 #Preview {
-    RegistrarEmailView()
+    RegistrarEmailView(autentificacionViewModel: AutentificacionViewModel())
 }

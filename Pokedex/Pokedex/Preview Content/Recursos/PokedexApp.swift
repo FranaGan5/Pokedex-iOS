@@ -20,9 +20,17 @@ class AppDelegate: NSObject, UIApplicationDelegate{
 @main
 struct PokedexApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var autentificacionViewModel = AutentificacionViewModel()
     var body: some Scene {
         WindowGroup {
-            AuthenticationView()
+            //Usuario creado o logueado va a la pantalla principal
+            if let usuario = autentificacionViewModel.usuario{
+                TabViewMain(autentificacionViewModel: autentificacionViewModel)
+                
+            }else{
+                //Usuario nuevo se le muestra la pantalla de registro
+                AuthenticationView(autentificacionViewModel: autentificacionViewModel)
+            }
         }
     }
 }

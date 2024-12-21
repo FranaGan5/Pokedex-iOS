@@ -8,23 +8,44 @@
 import SwiftUI
 
 struct PerfilView: View {
+    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     var body: some View {
         NavigationView{
             ZStack{
-                Color.black
+                Color.white
                     .edgesIgnoringSafeArea(.all)
-                List(lista){ item in
-                    HStack{
-                        emoji(emoji: item)
-                        Text(item.nombre)
-                            .bold()
+                VStack{
+                    VStack{
+                        List(lista){ item in
+                            HStack{
+                                emoji(emoji: item)
+                                Text(item.nombre)
+                                    .bold()
+                            }
+                        }
+                        .scrollContentBackground(.hidden)
+                    }
+                    VStack{
+                        HStack{
+                            Button("Cerrar Sesión"){
+                                autentificacionViewModel.logOut()
+                            }
+                            .padding(.bottom, 30)
+                            .foregroundColor(.red)
+                                Image("boton-cerrar")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .padding(.bottom, 30)
+                                    .foregroundColor(.red)
+                        }
                     }
                 }
-                .scrollContentBackground(.hidden)
-                
+               
             }
             
         }
+      
+       
     }
    
 }
@@ -44,5 +65,5 @@ struct emoji: View{
     }
 }
 #Preview {
-    PerfilView()
+    PerfilView(autentificacionViewModel: AutentificacionViewModel())
 }

@@ -18,10 +18,11 @@ enum AutehenticationSheetView: String, Identifiable{
 }
 
 struct AuthenticationView: View {
+    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @State private var authenticationSheetView: AutehenticationSheetView?
     var body: some View {
         ZStack{
-            Color.yellow
+            Color(Colors.amarilloPastel.rawValue)
                 .ignoresSafeArea(.all)
                 .opacity(0.3)
             VStack{
@@ -55,9 +56,9 @@ struct AuthenticationView: View {
         .sheet(item: $authenticationSheetView){ sheet in
             switch sheet{
             case .registro:
-                RegistrarEmailView()
+                RegistrarEmailView(autentificacionViewModel: autentificacionViewModel)
             case .login:
-                LoginEmailView()
+                LoginEmailView(autentificacionViewModel: autentificacionViewModel)
             }
         }
     }
@@ -65,5 +66,5 @@ struct AuthenticationView: View {
 
 
 #Preview {
-    AuthenticationView()
+    AuthenticationView(autentificacionViewModel: AutentificacionViewModel())
 }
