@@ -8,21 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
             VStack {
-                Text("Bienvenid@")
+                Text("Bienvenid@ \(autentificacionViewModel.usuario?.email ?? "Hola entrenador")")
                     .foregroundStyle(.white)
-                    .font(.title)
+                    .font(.body)
                     .bold()
                     .padding(.leading, 150)
-                    .frame(alignment: .trailing)
-                Text("entrenador@")
-                    .foregroundStyle(.white)
-                    .font(.subheadline)
-                    .bold()
-                    .padding(.leading, 200)
                     .frame(alignment: .trailing)
                 
                 ZStack{
@@ -35,5 +30,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(autentificacionViewModel: AutentificacionViewModel())
 }
