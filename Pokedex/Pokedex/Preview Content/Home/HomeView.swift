@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Pokedex
 //
-//  Created by InnoTest-iOS on 3/12/24.
+//  Created by FranaGan on 3/12/24.
 //
 
 import SwiftUI

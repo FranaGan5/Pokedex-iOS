@@ -2,7 +2,7 @@
 //  LoginEmailView.swift
 //  Pokedex
 //
-//  Created by InnoTest-iOS on 11/12/24.
+//  Created by FranaGan on 11/12/24.
 //
 
 import SwiftUI

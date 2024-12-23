@@ -2,7 +2,7 @@
 //  RegistrarEmailView.swift
 //  Pokedex
 //
-//  Created by InnoTest-iOS on 16/12/24.
+//  Created by FranaGan on 16/12/24.
 //
 
 import SwiftUI

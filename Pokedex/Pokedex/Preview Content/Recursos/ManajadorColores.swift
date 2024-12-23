@@ -2,7 +2,7 @@
 //  ManajadorColores.swift
 //  Pokedex
 //
-//  Created by InnoTest-iOS on 21/12/24.
+//  Created by FranaGan on 21/12/24.
 //
 import UIKit
 import SwiftUI
