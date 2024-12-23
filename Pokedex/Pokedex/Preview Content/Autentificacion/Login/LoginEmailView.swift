@@ -11,61 +11,85 @@ struct LoginEmailView: View {
     @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @State var textFieldEmail: String = ""
     @State var textFieldContrasena: String = ""
+    
     var body: some View {
-        ZStack{
-            Color(Colors.azulPastel.rawValue)
+        ZStack {
+            Color(Colors.amarilloPastel.rawValue)
                 .ignoresSafeArea()
-                .opacity(0.3)
-            VStack{
-                Image("pikachu-01")
-                    .resizable()
-                    .frame(width: 180, height: 300)
-                    .padding(.top, 150)
-                    .padding(.leading, 100)
-            }
-            VStack{
+            VStack(alignment: .center) {
+               
                 CerrarView()
-                    .padding(.bottom, 40)
                     .padding(.top, 20)
-                Group{
-                    Text("Bienvenido entrenador 🟡")
-                }
-                .padding(.horizontal, 8)
-                .multilineTextAlignment(.center)
-                .tint(.primary)
-                .font(.headline)
-                Group{
-                    Text("Loguéate para acceder a tu perfil")
-                        .tint(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.top, 12)
-                        .padding(.bottom, 12)
-                    
-                    TextField("Entrenador@pokedex.com", text: $textFieldEmail)
-                    TextField("Contraseña", text: $textFieldContrasena)
-                    
-                    Button("Login"){
-                        autentificacionViewModel.login(email: textFieldEmail, contrasena: textFieldContrasena)
-                    }
-                    .padding(.top, 20)
-                    .buttonStyle(.bordered)
-                    .tint(.black)
-                    if let mensajeError = autentificacionViewModel.mensajeError{
-                        Text(mensajeError)
+                
+                VStack(spacing: 40) {
+                    Spacer()
+                        .frame(height: 80)
+                    HStack {
+                        Text("¡Bienvenido!")
+                            .font(.system(size: 28, weight: .bold, design: .default))
                             .bold()
-                            .font(.body)
-                            .foregroundColor(.red)
-                            .padding(.top, 20)
-                        
+                            .foregroundColor(.black)
+                        Spacer()
                     }
+                    .frame(maxWidth: 300)
+                    
+                    HStack {
+                        TextField("Email", text: $textFieldEmail)
+                            .frame(height: 40)
+                            .padding(.leading, 10)
+                    }
+                    .background(.white)
+                    .frame(maxWidth: 300)
+                    .cornerRadius(6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color(.black), lineWidth: 2)
+                    )
+                    
+                    
+                    HStack {
+                        TextField("Contraseña", text: $textFieldContrasena)
+                            .frame(height: 40)
+                            .padding(.leading, 10)
+                    }
+                    .background(.white)
+                    .frame(maxWidth: 300)
+                    .cornerRadius(6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color(.black), lineWidth: 2)
+                    )
+                    
+                    HStack{
+                        Button("Accerder"){
+                            autentificacionViewModel.login(email: textFieldEmail, contrasena: textFieldContrasena)
+                        }
+                        .bold()
+                        .foregroundStyle(.black)
+                        .padding(5)
+                        .frame(width: 300, height: 40)
+                        .frame(maxWidth: 300)
+                        .background(.white)
+                        .cornerRadius(8)
+                    }
+                    .padding(.top, 50)
                 }
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal, 64)
+                VStack{
+                    Rectangle()
+                        .frame(height: 40)
+                        .foregroundStyle(Color(Colors.marron.rawValue))
+                    Rectangle()
+                        .frame(height: 40)
+                        .foregroundStyle(Color(Colors.marron.rawValue))
+                        .padding(.top, 30)
+                }
+                .padding(.top, 70)
                 Spacer()
             }
         }
     }
-    }
+}
+
 
 #Preview {
     LoginEmailView(autentificacionViewModel: AutentificacionViewModel())

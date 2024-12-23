@@ -10,6 +10,7 @@ import SwiftUI
 enum Colors: String {
    case azulPastel
     case amarilloPastel
+    case marron
     
 }
     
@@ -22,3 +23,4 @@ enum Colors: String {
 
 let azulPastel = Colors.azulPastel.rawValue
 let amarilloPastel = Colors.amarilloPastel.rawValue
+let marron = Colors.marron.rawValue
