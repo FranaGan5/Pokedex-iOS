@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct TabViewMain: View {
+    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     var body: some View {
         TabView{
             NotificacionesView().tabItem{
                 Label("Notificaciones", systemImage: "envelope.fill")
             }
-            HomeView().tabItem{
+            HomeView(autentificacionViewModel: autentificacionViewModel).tabItem{
                 Label("", image: "pokebola")
                     
                     
             }
-            PerfilView().tabItem{
+            PerfilView(autentificacionViewModel: autentificacionViewModel).tabItem{
                 Label("Perfil", systemImage: "person.fill")
             }
         }
@@ -26,5 +27,5 @@ struct TabViewMain: View {
 }
 
 #Preview {
-    TabViewMain()
+    TabViewMain(autentificacionViewModel: AutentificacionViewModel())
 }
