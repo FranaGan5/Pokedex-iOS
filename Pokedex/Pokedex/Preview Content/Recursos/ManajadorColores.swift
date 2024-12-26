@@ -8,9 +8,10 @@ import UIKit
 import SwiftUI
 
 enum Colors: String {
-   case azulPastel
-    case amarilloPastel
+    case azul
+    case amarillo
     case marron
+    case blanco
     
 }
     
@@ -21,6 +22,7 @@ enum Colors: String {
         }
     }
 
-let azulPastel = Colors.azulPastel.rawValue
-let amarilloPastel = Colors.amarilloPastel.rawValue
+let azul = Colors.azul.rawValue
+let amarillo = Colors.amarillo.rawValue
 let marron = Colors.marron.rawValue
+let blanco = Colors.blanco.rawValue

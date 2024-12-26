@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-
-enum AutehenticationSheetView: String, Identifiable{
+enum AutehenticationSheetView: String, Identifiable {
     case registro
     case login
     
-    var id: String{
+    var id: String {
         return rawValue
     }
 }
@@ -20,31 +19,42 @@ enum AutehenticationSheetView: String, Identifiable{
 struct AuthenticationView: View {
     @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @State private var authenticationSheetView: AutehenticationSheetView?
+    @State private var gradienteInicio = UnitPoint.topLeading
+    @State private var gradienteFin = UnitPoint.bottomTrailing
+
     var body: some View {
-        ZStack{
-            Color(Colors.amarilloPastel.rawValue)
-                .ignoresSafeArea(.all)
-                .opacity(0.3)
-            VStack{
-                Spacer()
-                Image("pokebola")
-                VStack{
-                    Button{
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [.red, .white, .red, .white]),
+                startPoint: gradienteInicio,
+                endPoint: gradienteFin
+            )
+            .ignoresSafeArea()
+            .animation(Animation.linear(duration: 8).repeatForever(autoreverses: false), value: gradienteInicio)
+            
+            VStack {
+                Image("pokemon-logo")
+                    .resizable()
+                    .frame(width: 220, height: 80)
+                
+                VStack {
+                    Button {
                         authenticationSheetView = .login
-                    }label: {
+                    } label: {
                         Label("Accede por Email", systemImage: "envelope.fill")
-                        
                     }
                     .tint(.black)
                 }
                 .controlSize(.large)
                 .buttonStyle(.bordered)
-                .padding(.top, 40)
+                .padding(.top, 200)
+                
                 Spacer()
-                HStack{
-                    Button{
+                
+                HStack {
+                    Button {
                         authenticationSheetView = .registro
-                    }label: {
+                    } label: {
                         Text("¿No tienes cuenta?")
                         Text("Registrate")
                             .underline()
@@ -52,9 +62,13 @@ struct AuthenticationView: View {
                     .tint(.black)
                 }
             }
+            
+            .onAppear {
+                startGradienteAnimation()
+            }
         }
-        .sheet(item: $authenticationSheetView){ sheet in
-            switch sheet{
+        .sheet(item: $authenticationSheetView) { sheet in
+            switch sheet {
             case .registro:
                 RegistrarEmailView(autentificacionViewModel: autentificacionViewModel)
             case .login:
@@ -62,8 +76,14 @@ struct AuthenticationView: View {
             }
         }
     }
-}
 
+    func startGradienteAnimation() {
+        withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: false)) {
+            gradienteInicio = .bottomTrailing
+            gradienteFin = .topLeading
+        }
+    }
+}
 
 #Preview {
     AuthenticationView(autentificacionViewModel: AutentificacionViewModel())

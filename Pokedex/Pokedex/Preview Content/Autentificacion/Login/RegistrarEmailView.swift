@@ -15,7 +15,7 @@ struct RegistrarEmailView: View {
     
     var body: some View {
         ZStack {
-            Color(Colors.azulPastel.rawValue)
+            Color(Colors.azul.rawValue)
                 .ignoresSafeArea()
             VStack(alignment: .center) {
                

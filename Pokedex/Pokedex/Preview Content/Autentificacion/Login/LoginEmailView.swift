@@ -15,7 +15,7 @@ struct LoginEmailView: View {
     
     var body: some View {
         ZStack {
-            Color(Colors.amarilloPastel.rawValue)
+            Color(Colors.amarillo.rawValue)
                 .ignoresSafeArea()
             VStack(alignment: .center) {
                
