@@ -17,14 +17,31 @@ struct LoginEmailView: View {
         ZStack {
             Color(Colors.amarillo.rawValue)
                 .ignoresSafeArea()
+            VStack {
+                Spacer()
+                ZStack {
+                    VStack {
+                        Rectangle()
+                            .frame(height: 40)
+                            .foregroundStyle(Color(Colors.marron.rawValue))
+                        Rectangle()
+                            .frame(height: 40)
+                            .foregroundStyle(Color(Colors.marron.rawValue))
+                            .padding(.top, 30)
+                    }
+                    Spacer()
+                    Image("cola-pikachu")
+                        .resizable()
+                        .frame(width: 350, height: 390)
+                        .padding(.top, 50)
+                }
+            }
+
             VStack(alignment: .center) {
-               
                 CerrarView()
                     .padding(.top, 20)
                 
                 VStack(spacing: 40) {
-                    Spacer()
-                        .frame(height: 80)
                     HStack {
                         Text("¡Bienvenido!")
                             .font(.system(size: 28, weight: .bold, design: .default))
@@ -87,19 +104,9 @@ struct LoginEmailView: View {
                         .background(.white)
                         .cornerRadius(8)
                     }
-                    .padding(.top, 50)
+                    .padding(.top, 40)
+                    Spacer()
                 }
-                VStack{
-                    Rectangle()
-                        .frame(height: 40)
-                        .foregroundStyle(Color(Colors.marron.rawValue))
-                    Rectangle()
-                        .frame(height: 40)
-                        .foregroundStyle(Color(Colors.marron.rawValue))
-                        .padding(.top, 30)
-                }
-                .padding(.top, 70)
-                Spacer()
             }
         }
     }
