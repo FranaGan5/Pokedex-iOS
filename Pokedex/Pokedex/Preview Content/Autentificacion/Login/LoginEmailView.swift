@@ -92,9 +92,18 @@ struct LoginEmailView: View {
                             .stroke(Color(.black), lineWidth: 2)
                     )
                     
-                    HStack{
-                        Button("Accerder"){
+                    HStack {
+                        Button(action: {
                             autentificacionViewModel.login(email: textFieldEmail, contrasena: textFieldContrasena)
+                        }) {
+                            Text("Acceder")
+                                .font(.headline)
+                                .padding(5)
+                                .foregroundStyle(.black)
+                                .frame(maxWidth: 300)
+                                .frame(height: 40)
+                                .background(Color.white)
+                                .cornerRadius(8)
                         }
                         .bold()
                         .foregroundStyle(.black)
@@ -103,10 +112,11 @@ struct LoginEmailView: View {
                         .frame(maxWidth: 300)
                         .background(.white)
                         .cornerRadius(8)
+                        .shadow(color: .gray.opacity(0.5), radius: 4, x: 0, y: 2)
                     }
-                    .padding(.top, 40)
-                    Spacer()
                 }
+                .padding(.top, 40)
+                Spacer()
             }
         }
     }

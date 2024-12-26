@@ -72,7 +72,7 @@ struct AuthenticationView: View {
             }
             
             .onAppear {
-                startGradienteAnimation()
+                inicioGradienteAnimation()
             }
         }
         .sheet(item: $authenticationSheetView) { sheet in
@@ -85,7 +85,7 @@ struct AuthenticationView: View {
         }
     }
 
-    func startGradienteAnimation() {
+    func inicioGradienteAnimation() {
         withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: false)) {
             gradienteInicio = .bottomTrailing
             gradienteFin = .topLeading
