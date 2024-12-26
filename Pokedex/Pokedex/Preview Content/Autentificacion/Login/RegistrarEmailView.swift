@@ -9,61 +9,92 @@ import SwiftUI
 
 struct RegistrarEmailView: View {
     @ObservedObject var autentificacionViewModel: AutentificacionViewModel
-        @State var textFieldEmail: String = ""
-        @State var textFieldContrasena: String = ""
+    @State var textFieldEmail: String = ""
+    @State var textFieldContrasena: String = ""
+    @State var mostrarContrasena: Bool = false
+    
     var body: some View {
-        ZStack{
+        ZStack {
             Color(Colors.azulPastel.rawValue)
                 .ignoresSafeArea()
-                .opacity(0.3)
-            Image("bulbasur")
-                .resizable()
-                .frame(width: 100, height: 100)
-        VStack{
-            CerrarView()
-                .padding(.bottom, 40)
-                .padding(.top, 20)
-            
-            Group{
-                Text("Bienvenido al proceso de registro 🟢")
-            }
-            .padding(.horizontal, 8)
-            .multilineTextAlignment(.center)
-            .tint(.primary)
-            .font(.headline)
-            Group{
-                Text("Introduce un correo y contraseña")
-                    .tint(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 12)
-                    .padding(.bottom, 12)
+            VStack(alignment: .center) {
+               
+                CerrarView()
+                    .padding(.top, 20)
                 
-                TextField("Entrenador@pokedex.com", text: $textFieldEmail)
-                    .tint(.green)
-                TextField("Contraseña", text: $textFieldContrasena)
-                    .tint(.green)
-                
-                Button("Aceptar"){
-                    autentificacionViewModel.crearNuevoUsuario(email: textFieldEmail, contrasena: textFieldContrasena)
-                }
-                .padding(.top, 20)
-                .buttonStyle(.bordered)
-                .tint(.green)
-                if let mensajeError = autentificacionViewModel.mensajeError{
-                    Text(mensajeError)
+                VStack(spacing: 40) {
+                    Spacer()
+                        .frame(height: 80)
+                    HStack {
+                        Text("¡Registrate!")
+                            .font(.system(size: 28, weight: .bold, design: .default))
+                            .bold()
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    .frame(maxWidth: 300)
+                    
+                    HStack {
+                        TextField("Email", text: $textFieldEmail)
+                            .frame(height: 40)
+                            .padding(.leading, 10)
+                    }
+                    .background(.white)
+                    .frame(maxWidth: 300)
+                    .cornerRadius(6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color(.black), lineWidth: 2)
+                    )
+                    
+                    
+                    HStack {
+                        if mostrarContrasena{
+                            TextField("Contraseña", text: $textFieldContrasena)
+                                .frame(height: 40)
+                                .padding(.leading, 10)
+                        }else{
+                            SecureField("Contraseña", text: $textFieldContrasena)
+                                .frame(height: 40)
+                                .padding(.leading, 10)
+                        }
+                        Button(action:{
+                            mostrarContrasena.toggle()
+                        }){
+                            Image(systemName: mostrarContrasena ? "eye" : "eye.slash")
+                                .foregroundStyle(.gray)
+                                .padding(.trailing, 10)
+                        }
+                        
+                    }
+                    .background(.white)
+                    .frame(maxWidth: 300)
+                    .cornerRadius(6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color(.black), lineWidth: 2)
+                    )
+                    
+                    HStack{
+                        Button("Registrarse"){
+                            autentificacionViewModel.login(email: textFieldEmail, contrasena: textFieldContrasena)
+                        }
                         .bold()
-                        .font(.body)
-                        .foregroundColor(.red)
-                        .padding(.top, 20)
+                        .foregroundStyle(.black)
+                        .padding(5)
+                        .frame(width: 300, height: 40)
+                        .frame(maxWidth: 300)
+                        .background(.white)
+                        .cornerRadius(8)
+                    }
+                    .padding(.top, 50)
                 }
+                Spacer()
             }
-            .textFieldStyle(.roundedBorder)
-            .padding(.horizontal, 64)
-            Spacer()
         }
     }
-        }
 }
+
 
 #Preview {
     RegistrarEmailView(autentificacionViewModel: AutentificacionViewModel())

@@ -11,6 +11,7 @@ struct LoginEmailView: View {
     @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @State var textFieldEmail: String = ""
     @State var textFieldContrasena: String = ""
+    @State var mostrarContrasena: Bool = false
     
     var body: some View {
         ZStack {
@@ -48,9 +49,23 @@ struct LoginEmailView: View {
                     
                     
                     HStack {
-                        TextField("Contraseña", text: $textFieldContrasena)
-                            .frame(height: 40)
-                            .padding(.leading, 10)
+                        if mostrarContrasena{
+                            TextField("Contraseña", text: $textFieldContrasena)
+                                .frame(height: 40)
+                                .padding(.leading, 10)
+                        }else{
+                            SecureField("Contraseña", text: $textFieldContrasena)
+                                .frame(height: 40)
+                                .padding(.leading, 10)
+                        }
+                        Button(action:{
+                            mostrarContrasena.toggle()
+                        }){
+                            Image(systemName: mostrarContrasena ? "eye" : "eye.slash")
+                                .foregroundStyle(.gray)
+                                .padding(.trailing, 10)
+                        }
+                        
                     }
                     .background(.white)
                     .frame(maxWidth: 300)
