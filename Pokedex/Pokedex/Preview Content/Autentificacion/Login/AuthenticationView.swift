@@ -41,12 +41,20 @@ struct AuthenticationView: View {
                     Button {
                         authenticationSheetView = .login
                     } label: {
-                        Label("Accede por Email", systemImage: "envelope.fill")
+                        HStack {
+                            Image(systemName: "envelope.fill")
+                            Text("Accede por Email")
+                        }
+                        .padding()
+                        .frame(maxWidth: 300)
+                        .background(Color.white)
+                        .cornerRadius(8)
                     }
-                    .tint(.black)
+                    .foregroundColor(.black)
+                    .shadow(color: .gray.opacity(0.5), radius: 4, x: 0, y: 2)
+                    .padding(.horizontal, 16)
                 }
-                .controlSize(.large)
-                .buttonStyle(.bordered)
+
                 .padding(.top, 200)
                 
                 Spacer()
