@@ -32,6 +32,7 @@
 		90BD2C042D0A06A900CE6144 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 90BD2C032D0A06A900CE6144 /* FirebaseStorage */; };
 		90BD2C062D0A06A900CE6144 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 90BD2C052D0A06A900CE6144 /* FirebaseStorageCombine-Community */; };
 		90BD2C082D0A06A900CE6144 /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 90BD2C072D0A06A900CE6144 /* FirebaseVertexAI */; };
+		90FA1E132D36DA53008BB2B6 /* PokemonAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 90FA1E122D36DA53008BB2B6 /* PokemonAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 				90BD2BDE2D0A06A900CE6144 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				90BD2BF02D0A06A900CE6144 /* FirebaseFirestore in Frameworks */,
 				90BD2BFE2D0A06A900CE6144 /* FirebaseMessaging in Frameworks */,
+				90FA1E132D36DA53008BB2B6 /* PokemonAPI in Frameworks */,
 				90A7ECB52D109CF700DE05F8 /* FirebaseAuth in Frameworks */,
 				90A7ECB12D109CF700DE05F8 /* FirebaseAnalytics in Frameworks */,
 				90BD2BFA2D0A06A900CE6144 /* FirebaseInstallations in Frameworks */,
@@ -198,6 +200,7 @@
 				90A7ECB02D109CF700DE05F8 /* FirebaseAnalytics */,
 				90A7ECB22D109CF700DE05F8 /* FirebaseAppDistribution-Beta */,
 				90A7ECB42D109CF700DE05F8 /* FirebaseAuth */,
+				90FA1E122D36DA53008BB2B6 /* PokemonAPI */,
 			);
 			productName = Pokedex;
 			productReference = 900E81B02CFF786100639B47 /* Pokedex.app */;
@@ -283,6 +286,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				90A7ECAF2D109CF700DE05F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				90FA1E112D36DA53008BB2B6 /* XCRemoteSwiftPackageReference "PokemonAPI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 900E81B12CFF786100639B47 /* Products */;
@@ -655,6 +659,14 @@
 				version = 11.5.0;
 			};
 		};
+		90FA1E112D36DA53008BB2B6 /* XCRemoteSwiftPackageReference "PokemonAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kinkofer/PokemonAPI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -760,6 +772,11 @@
 		90BD2C072D0A06A900CE6144 /* FirebaseVertexAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseVertexAI;
+		};
+		90FA1E122D36DA53008BB2B6 /* PokemonAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90FA1E112D36DA53008BB2B6 /* XCRemoteSwiftPackageReference "PokemonAPI" */;
+			productName = PokemonAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

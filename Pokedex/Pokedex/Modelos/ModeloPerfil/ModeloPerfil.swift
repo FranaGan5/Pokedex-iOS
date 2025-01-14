@@ -34,5 +34,64 @@ let lista: [ModeloPerfil] = [
            emoji: "👨🏽‍🌾",
            nombre: "Alias",
            descripcion: "Estatua ubicada en Nuva York."),
-    
+    ModeloPerfil(
+           emoji: "📱",
+           nombre: "Teléfono",
+           descripcion: "Persona que levanta la mano para preguntar."),
+    ModeloPerfil(
+           emoji: "✉️",
+           nombre: "Email",
+           descripcion: "El aguacate es un fruto exótico carnoso que se obtiene del árbol tropical del mismo nombre. En algunas partes de América del Sur se conoce como Palta.."),
+    ModeloPerfil(
+           emoji: "🏠",
+           nombre: "Dirección",
+           descripcion: "Comida chatarra creada en Italia."),
+    ModeloPerfil(
+           emoji: "🪪",
+           nombre: "DNI",
+           descripcion: "Los rompecabezas o puzzles son piezas comúnmente planas que combinadas correctamente forman una figura, un objeto o una escena. ... Por diversión, entretenimiento o como una forma de relajarse"),
+    ModeloPerfil(
+           emoji: "👨🏽‍🌾",
+           nombre: "Alias",
+           descripcion: "Estatua ubicada en Nuva York."),
+    ModeloPerfil(
+           emoji: "📱",
+           nombre: "Teléfono",
+           descripcion: "Persona que levanta la mano para preguntar."),
+    ModeloPerfil(
+           emoji: "✉️",
+           nombre: "Email",
+           descripcion: "El aguacate es un fruto exótico carnoso que se obtiene del árbol tropical del mismo nombre. En algunas partes de América del Sur se conoce como Palta.."),
+    ModeloPerfil(
+           emoji: "🏠",
+           nombre: "Dirección",
+           descripcion: "Comida chatarra creada en Italia."),
+    ModeloPerfil(
+           emoji: "🪪",
+           nombre: "DNI",
+           descripcion: "Los rompecabezas o puzzles son piezas comúnmente planas que combinadas correctamente forman una figura, un objeto o una escena. ... Por diversión, entretenimiento o como una forma de relajarse"),
+    ModeloPerfil(
+           emoji: "👨🏽‍🌾",
+           nombre: "Alias",
+           descripcion: "Estatua ubicada en Nuva York."),
+    ModeloPerfil(
+           emoji: "📱",
+           nombre: "Teléfono",
+           descripcion: "Persona que levanta la mano para preguntar."),
+    ModeloPerfil(
+           emoji: "✉️",
+           nombre: "Email",
+           descripcion: "El aguacate es un fruto exótico carnoso que se obtiene del árbol tropical del mismo nombre. En algunas partes de América del Sur se conoce como Palta.."),
+    ModeloPerfil(
+           emoji: "🏠",
+           nombre: "Dirección",
+           descripcion: "Comida chatarra creada en Italia."),
+    ModeloPerfil(
+           emoji: "🪪",
+           nombre: "DNI",
+           descripcion: "Los rompecabezas o puzzles son piezas comúnmente planas que combinadas correctamente forman una figura, un objeto o una escena. ... Por diversión, entretenimiento o como una forma de relajarse"),
+    ModeloPerfil(
+           emoji: "👨🏽‍🌾",
+           nombre: "Alias",
+           descripcion: "Estatua ubicada en Nuva York."),
 ]

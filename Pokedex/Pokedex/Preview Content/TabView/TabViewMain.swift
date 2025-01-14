@@ -12,7 +12,7 @@ struct TabViewMain: View {
     var body: some View {
         TabView{
             NotificacionesView().tabItem{
-                Label("Notificaciones", systemImage: "envelope.fill")
+                Label("Multimedia", systemImage: "envelope.fill")
             }
             HomeView(autentificacionViewModel: autentificacionViewModel).tabItem{
                 Label("", image: "pokebola")
