@@ -17,6 +17,7 @@ final class PokeAPIManager {
     private init() {}
     
     //MARK: Método de conexión
+    //Esta llamada se utiliza para obtener pokemon en concreto
     func fetchPokemon(named name: String, completion: @escaping(Result<Pokemon, Error>) -> Void){
         let baseURL = "https://pokeapi.co/api/v2/pokemon/"
         guard let url = URL(string: baseURL + name) else {
@@ -49,6 +50,35 @@ final class PokeAPIManager {
         }
         task.resume()
     }
+    //Con esta llamada hacemos una lista de elementos
+    func fetchListaPokemon(completion: @escaping (Result<PokemonListResponse, Error>) -> Void) {
+        let urlString = "https://pokeapi.co/api/v2/pokemon?limit=200"
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.invalidURL))
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(NetworkError.noData))
+                return
+            }
+
+            do {
+                let pokemonListResponse = try JSONDecoder().decode(PokemonListResponse.self, from: data)
+                completion(.success(pokemonListResponse))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+
+
     
     //MARK: Errores de conexión
     enum NetworkError: Error {
@@ -99,4 +129,13 @@ final class PokeAPIManager {
             }
         }
     }
+    struct PokemonListResponse: Decodable {
+        struct PokemonResult: Decodable {
+            let name: String
+            let url: String
+        }
+
+        let results: [PokemonResult]
+    }
+    
 }

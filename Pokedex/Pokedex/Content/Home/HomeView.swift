@@ -11,48 +11,67 @@ import PokemonAPI
 struct HomeView: View {
     @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @StateObject private var viewModel = PokemonViewModel()
+    
     @State private var buscarNombre: String = ""
+    
+    let listadoPokemon = [
+        GridItem(.flexible(minimum: 100, maximum: 100)),
+        GridItem(.flexible(minimum: 100, maximum: 100)),
+        GridItem(.flexible(minimum: 100, maximum: 100)),
+    ]
     
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
             Image("FondoPokeball")
-                VStack {
-                    TextField("Introduce el pokemon a buscar", text: $buscarNombre)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .frame(maxWidth: 300)
-                        .onChange(of: buscarNombre) { _ in
-                            buscarNombre = buscarNombre.lowercased()
-                        }
-                    
-                    Button(action: {
-                        viewModel.fetchPokemonDetails(for: buscarNombre)
-                    }) {
-                        Image("llama-pokemon")
-                            .resizable()
-                            .frame(width: 80, height: 80)
+            ScrollView {
+                VStack{
+                    HStack {
+                        TextField("Introduce el pokemon a buscar", text: $buscarNombre)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 10)
+                            .frame(maxWidth: .infinity)
+                            .onChange(of: buscarNombre) { _ in
+                                buscarNombre = buscarNombre.lowercased()
+                            }
+
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .padding(.trailing, 10)
                     }
-     
-                    if let errorMessage = viewModel.errorMensaje {
+                    .frame(maxWidth: 350)
+                    .padding(.vertical, 50)
+
+                    LazyVGrid(columns: listadoPokemon, spacing: 50){
+                        ForEach(viewModel.pokemonDatos, id: \.name) { pokemon in
+                            VStack {
+                                if let url = URL(string: pokemon.imageUrl) {
+                                    AsyncImage(url: url) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                }
+                                Text(pokemon.name)
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }.onAppear {
+                        viewModel.fetchListaPokemon()
+                    }
+                    
+                    Spacer()
+                    
+                    /*if let errorMessage = viewModel.errorMensaje {
                         Text("Error: \(errorMessage)")
                             .foregroundColor(.red)
                     } else {
                         VStack{
-                            if let imageUrl = viewModel.pokemonImageUrl, let url = URL(string: imageUrl) {
-                                AsyncImage(url: url) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 200, height: 200)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                            } else {
-                                Text("No se encontró imagen.")
-                                    .foregroundColor(.gray)
-                                    .padding()
-                            }
+                            
                             Text("Nombre: \(viewModel.pokemonName)")
                                 .padding(10)
                                 .foregroundStyle(Color.white)
@@ -65,12 +84,13 @@ struct HomeView: View {
                             Text("Habilidades: \(viewModel.abilities.joined(separator: ", "))")
                                 .padding(10)
                                 .foregroundStyle(Color.white)
-                        }.padding(.top, 20)
+                     }
+                        }.padding(.top, 20)*/
                     }
                 }
             }
         }
-}
+    }
 
 #Preview {
     HomeView(autentificacionViewModel: AutentificacionViewModel())

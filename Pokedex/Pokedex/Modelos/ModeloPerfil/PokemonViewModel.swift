@@ -15,8 +15,11 @@ class PokemonViewModel:ObservableObject {
     @Published var abilities: [String] = []
     @Published var pokemonImageUrl: String?
     @Published var errorMensaje: String? = nil
+    @Published var imagenesPokemonUrl: [String] = []
+    @Published var pokemonDatos: [(name: String, imageUrl: String)] = []
+
     
-    func fetchPokemonDetails(for name: String){
+    func fetchDetallesPokemon(for name: String){
         PokeAPIManager.shared.fetchPokemon(named: name){ [weak self] result in
             DispatchQueue.main.async {
                 switch result{
@@ -33,4 +36,23 @@ class PokemonViewModel:ObservableObject {
             
         }
     }
+
+    func fetchListaPokemon() {
+        PokeAPIManager.shared.fetchListaPokemon { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let pokemonList):
+                    self?.pokemonDatos = pokemonList.results.map { result in
+                        let pokemonID = result.url.split(separator: "/").last ?? ""
+                        let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonID).png"
+                        return (name: result.name.capitalized, imageUrl: imageUrl)
+                    }
+                case .failure(let error):
+                    self?.errorMensaje = error.localizedDescription
+                }
+            }
+        }
+    }
+
 }
+
