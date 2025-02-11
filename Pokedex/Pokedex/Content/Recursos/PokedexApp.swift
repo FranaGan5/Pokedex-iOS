@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
 
 class AppDelegate: NSObject, UIApplicationDelegate{
     func application(_ application: UIApplication,
@@ -20,17 +21,16 @@ class AppDelegate: NSObject, UIApplicationDelegate{
 @main
 struct PokedexApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var autentificacionViewModel = AutentificacionViewModel()
+    @StateObject private var authViewModel = AuthViewModel()
+
     var body: some Scene {
         WindowGroup {
-            //Usuario creado o logueado va a la pantalla principal
-            if let usuario = autentificacionViewModel.usuario{
-                TabViewMain(autentificacionViewModel: autentificacionViewModel)
-                
-            }else{
-                //Usuario nuevo se le muestra la pantalla de registro
-                AuthenticationView(autentificacionViewModel: autentificacionViewModel)
+            if authViewModel.user != nil {
+                TabViewMain()
+            } else {
+                AuthenticationView()
             }
         }
     }
 }
+

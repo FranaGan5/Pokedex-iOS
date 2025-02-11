@@ -1,25 +1,19 @@
-//
-//  TabViewMain.swift
-//  Pokedex
-//
-//  Created by FranaGan on 3/12/24.
-//
-
 import SwiftUI
 
 struct TabViewMain: View {
-    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+
     var body: some View {
-        TabView{
-            NotificacionesView().tabItem{
+        TabView {
+            NotificacionesView().tabItem {
                 Label("Multimedia", systemImage: "play.square")
             }
-            HomeView(autentificacionViewModel: autentificacionViewModel).tabItem{
+
+            HomeView().tabItem {
                 Label("", image: "pokebola")
-                    
-                    
             }
-            PerfilView(autentificacionViewModel: autentificacionViewModel).tabItem{
+
+            PerfilView().tabItem {
                 Label("Perfil", systemImage: "person.fill")
             }
         }
@@ -27,5 +21,6 @@ struct TabViewMain: View {
 }
 
 #Preview {
-    TabViewMain(autentificacionViewModel: AutentificacionViewModel())
+    TabViewMain().environmentObject(AuthViewModel())
 }
+

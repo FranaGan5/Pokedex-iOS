@@ -9,7 +9,6 @@ import SwiftUI
 import PokemonAPI
 
 struct HomeView: View {
-    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
     @StateObject private var viewModel = PokemonViewModel()
     
     @State private var buscarNombre: String = ""
@@ -93,5 +92,5 @@ struct HomeView: View {
     }
 
 #Preview {
-    HomeView(autentificacionViewModel: AutentificacionViewModel())
+    HomeView()
 }

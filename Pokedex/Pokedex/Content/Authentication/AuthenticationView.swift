@@ -17,7 +17,7 @@ enum AutehenticationSheetView: String, Identifiable {
 }
 
 struct AuthenticationView: View {
-    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
+    
     @State private var authenticationSheetView: AutehenticationSheetView?
     @State private var gradienteInicio = UnitPoint.topLeading
     @State private var gradienteFin = UnitPoint.bottomTrailing
@@ -78,9 +78,9 @@ struct AuthenticationView: View {
         .sheet(item: $authenticationSheetView) { sheet in
             switch sheet {
             case .registro:
-                RegistrarEmailView(autentificacionViewModel: autentificacionViewModel)
+                RegisterEmailView()
             case .login:
-                LoginEmailView(autentificacionViewModel: autentificacionViewModel)
+                SignInEmailView()
             }
         }
     }
@@ -94,5 +94,5 @@ struct AuthenticationView: View {
 }
 
 #Preview {
-    AuthenticationView(autentificacionViewModel: AutentificacionViewModel())
+    AuthenticationView()
 }

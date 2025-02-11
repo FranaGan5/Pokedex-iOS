@@ -657,8 +657,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
-				kind = exactVersion;
-				version = 11.5.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.8.1;
 			};
 		};
 		90FA1E112D36DA53008BB2B6 /* XCRemoteSwiftPackageReference "PokemonAPI" */ = {

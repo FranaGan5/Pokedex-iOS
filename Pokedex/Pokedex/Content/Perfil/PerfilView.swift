@@ -1,23 +1,30 @@
-//
-//  PerfilView.swift
-//  Pokedex
-//
-//  Created by FranaGan on 3/12/24.
-//
-
 import SwiftUI
 
+@MainActor
+final class PerfilViewModel: ObservableObject {
+    func logOut(authViewModel: AuthViewModel) {
+        do {
+            try AuthenticationManager.shared.signOut()
+            authViewModel.user = nil
+        } catch {
+            print("❌ Error al cerrar sesión: \(error.localizedDescription)")
+        }
+    }
+}
+
 struct PerfilView: View {
-    @ObservedObject var autentificacionViewModel: AutentificacionViewModel
+    @StateObject private var viewModel = PerfilViewModel()
+    @EnvironmentObject var authViewModel: AuthViewModel  // Usa el ViewModel global
+
     var body: some View {
-        NavigationView{
-            ZStack{
+        NavigationView {
+            ZStack {
                 Color.white
                     .edgesIgnoringSafeArea(.all)
-                VStack{
-                    VStack{
-                        List(lista){ item in
-                            HStack{
+                VStack {
+                    VStack {
+                        List(lista) { item in
+                            HStack {
                                 emoji(emoji: item)
                                 Text(item.nombre)
                                     .bold()
@@ -25,34 +32,31 @@ struct PerfilView: View {
                         }
                         .scrollContentBackground(.hidden)
                     }
-                    VStack{
-                        HStack{
-                            Button("Cerrar Sesión"){
-                                autentificacionViewModel.logOut()
+                    VStack {
+                        HStack {
+                            Button("Cerrar Sesión") {
+                                viewModel.logOut(authViewModel: AuthViewModel())
                             }
                             .padding(.bottom, 30)
                             .foregroundColor(.red)
-                                Image("boton-cerrar")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .padding(.bottom, 30)
-                                    .foregroundColor(.red)
+                            
+                            Image("boton-cerrar")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .padding(.bottom, 30)
+                                .foregroundColor(.red)
                         }
                     }
                 }
-               
             }
-            
         }
-      
-       
     }
-   
 }
-struct emoji: View{
+
+struct emoji: View {
     let emoji: ModeloPerfil
-    var body: some View{
-        ZStack{
+    var body: some View {
+        ZStack {
             Text(emoji.emoji)
                 .shadow(radius: 3)
                 .font(.largeTitle)
@@ -64,6 +68,8 @@ struct emoji: View{
         }
     }
 }
+
 #Preview {
-    PerfilView(autentificacionViewModel: AutentificacionViewModel())
+    PerfilView().environmentObject(AuthViewModel()) 
 }
+
