@@ -39,7 +39,7 @@ struct SignInEmailView: View {
 
     var body: some View {
         ZStack {
-            Color(Colors.azul.rawValue)
+            Color.white
                 .ignoresSafeArea()
 
             VStack(alignment: .center) {
@@ -110,24 +110,24 @@ struct SignInEmailView: View {
                         Button(action: {
                             viewModel.signIn()
                         }) {
-                            Text("Sign In")
+                            Text("Acceder")
                                 .font(.headline)
                                 .padding(5)
-                                .foregroundStyle(.black)
-                                
-                                .background(Color.white)
-                                .cornerRadius(10)
+                               
                         }
                         .bold()
-                        .foregroundStyle(.black)
-                        .padding(5)
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
-                        .background(.white)
-                        .padding(.horizontal, 30)
-                        .cornerRadius(8)
+                        .foregroundColor(.white)
+                        .background(.rojoPokebola)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(Color(.rojoPokebola), lineWidth: 2)
+                                
+                        )
                         .shadow(
                             color: .gray.opacity(0.5), radius: 4, x: 0, y: 2)
+                        .padding(.horizontal, 30)
                     }
                 }
                 .padding(.top, 40)
@@ -138,5 +138,8 @@ struct SignInEmailView: View {
 }
 
 #Preview {
-    SignInEmailView()
+    let mockViewModel = SignInEmailViewModel()
+    return SignInEmailView()
+        .environmentObject(mockViewModel)
 }
+

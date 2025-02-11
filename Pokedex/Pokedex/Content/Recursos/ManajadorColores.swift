@@ -12,6 +12,7 @@ enum Colors: String {
     case amarillo
     case marron
     case blanco
+    case rojoPokebola
     
 }
     
@@ -26,3 +27,4 @@ let azul = Colors.azul.rawValue
 let amarillo = Colors.amarillo.rawValue
 let marron = Colors.marron.rawValue
 let blanco = Colors.blanco.rawValue
+let rojoPokebola = Colors.rojoPokebola.rawValue
