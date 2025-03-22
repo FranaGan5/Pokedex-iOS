@@ -8,45 +8,47 @@
 import SwiftUI
 
 @MainActor
-final class RegisterEmailViewModel: ObservableObject {
-
+final class SignInEmailViewModel: ObservableObject {
+    
     @Published var email = ""
     @Published var password = ""
-
-    func register() {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("Email o contraseña no encontrados")
-            return
-        }
-        Task {
-            do {
-                let returnedUserData = try await AuthenticationManager.shared
-                    .createUser(email: email, password: password)
-                print("Success")
-            } catch {
-                print("Error: \(error)")
+    @Published var errorMessage: String?
+    
+    func signIn() {
+            guard !email.isEmpty, !password.isEmpty else {
+                errorMessage = "⚠️ Email o contraseña no pueden estar vacíos."
+                return
+            }
+        
+            
+            Task {
+                do{
+                    let result = try await AuthenticationManager.shared.signIn(email: email, password: password)
+                    print("Success")
+                }catch{
+                    print("Error: \(error)")
+                }
             }
         }
-    }
-
 }
-struct RegisterEmailView: View {
 
-    @StateObject private var viewModel = RegisterEmailViewModel()
+struct SignInEmailView: View {
+
+    @StateObject private var viewModel = SignInEmailViewModel()
     @State var displayPassword: Bool = false
 
     var body: some View {
         ZStack {
-            Color(Colors.amarillo.rawValue)
+            Color.white
                 .ignoresSafeArea()
 
             VStack(alignment: .center) {
-                CerrarView()
+                CloseView()
                     .padding(.top, 20)
 
                 VStack(spacing: 40) {
 
-                    Text("¡Registrate!")
+                    Text("¡Inicia sesión!")
                         .font(
                             .system(size: 28, weight: .bold, design: .default)
                         )
@@ -106,26 +108,26 @@ struct RegisterEmailView: View {
 
                     HStack {
                         Button(action: {
-                            viewModel.register()
+                            viewModel.signIn()
                         }) {
-                            Text("Registrar")
+                            Text("Acceder")
                                 .font(.headline)
                                 .padding(5)
-                                .foregroundStyle(.black)
-                                
-                                .background(Color.white)
-                                .cornerRadius(10)
+                               
                         }
                         .bold()
-                        .foregroundStyle(.black)
-                        .padding(5)
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
-                        .background(.white)
-                        .padding(.horizontal, 30)
-                        .cornerRadius(8)
+                        .foregroundColor(.white)
+                        .background(.rojoPokebola)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(Color(.rojoPokebola), lineWidth: 2)
+                                
+                        )
                         .shadow(
                             color: .gray.opacity(0.5), radius: 4, x: 0, y: 2)
+                        .padding(.horizontal, 30)
                     }
                 }
                 .padding(.top, 40)
@@ -136,6 +138,8 @@ struct RegisterEmailView: View {
 }
 
 #Preview {
-    SignInEmailView()
+    let mockViewModel = SignInEmailViewModel()
+    return SignInEmailView()
+        .environmentObject(mockViewModel)
 }
 
