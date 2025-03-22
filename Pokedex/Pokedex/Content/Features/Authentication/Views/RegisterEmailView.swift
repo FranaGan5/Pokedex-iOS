@@ -7,29 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class RegisterEmailViewModel: ObservableObject {
-
-    @Published var email = ""
-    @Published var password = ""
-
-    func register() {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("Email o contraseña no encontrados")
-            return
-        }
-        Task {
-            do {
-                let returnedUserData = try await AuthenticationManager.shared
-                    .createUser(email: email, password: password)
-                print("Success")
-            } catch {
-                print("Error: \(error)")
-            }
-        }
-    }
-
-}
 struct RegisterEmailView: View {
 
     @StateObject private var viewModel = RegisterEmailViewModel()
@@ -37,7 +14,7 @@ struct RegisterEmailView: View {
 
     var body: some View {
         ZStack {
-            Color(Colors.amarillo.rawValue)
+            Color(.pokeYellowFfe)
                 .ignoresSafeArea()
 
             VStack(alignment: .center) {

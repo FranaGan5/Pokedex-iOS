@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class SignInEmailViewModel: ObservableObject {
-    
-    @Published var email = ""
-    @Published var password = ""
-    @Published var errorMessage: String?
-    
-    func signIn() {
-            guard !email.isEmpty, !password.isEmpty else {
-                errorMessage = "⚠️ Email o contraseña no pueden estar vacíos."
-                return
-            }
-        
-            
-            Task {
-                do{
-                    let result = try await AuthenticationManager.shared.signIn(email: email, password: password)
-                    print("Success")
-                }catch{
-                    print("Error: \(error)")
-                }
-            }
-        }
-}
 
 struct SignInEmailView: View {
 
@@ -119,10 +95,10 @@ struct SignInEmailView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
                         .foregroundColor(.white)
-                        .background(.rojoPokebola)
+                        .background(Color("pokeRed_f03"))
                         .overlay(
                             RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color(.rojoPokebola), lineWidth: 2)
+                                .stroke(Color("pokeRed_f03"), lineWidth: 2)
                                 
                         )
                         .shadow(
