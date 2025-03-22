@@ -15,7 +15,7 @@ struct SignInEmailView: View {
 
     var body: some View {
         ZStack {
-            Color.white
+            Color.pokeWhiteFef
                 .ignoresSafeArea()
 
             VStack(alignment: .center) {
@@ -29,7 +29,7 @@ struct SignInEmailView: View {
                             .system(size: 28, weight: .bold, design: .default)
                         )
                         .bold()
-                        .foregroundColor(.black)
+                        .foregroundColor(.pokeBlack)
                         .frame(maxWidth: 180, alignment: .center)
                         .padding(.horizontal, 30)
 
@@ -38,10 +38,10 @@ struct SignInEmailView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 55)
                             .padding(.leading, 10)
-                            .background(.white)
+                            .background(.pokeWhiteFef)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 6)
-                                    .stroke(Color(.black), lineWidth: 2))
+                                    .stroke(Color(.pokeBlack), lineWidth: 2))
                     }
                     .padding(.horizontal, 30)
 
@@ -75,10 +75,10 @@ struct SignInEmailView: View {
 
                         }
                     }
-                        .background(.white)
+                        .background(.pokeWhiteFef)
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color(.black), lineWidth: 2)
+                                .stroke(Color(.pokeBlack), lineWidth: 2)
                         )
                         .padding(.horizontal, 30)
 

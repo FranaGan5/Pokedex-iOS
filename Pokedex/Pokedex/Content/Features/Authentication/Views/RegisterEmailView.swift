@@ -14,7 +14,7 @@ struct RegisterEmailView: View {
 
     var body: some View {
         ZStack {
-            Color(.pokeYellowFfe)
+            Color.pokeRedF03
                 .ignoresSafeArea()
 
             VStack(alignment: .center) {
@@ -28,7 +28,7 @@ struct RegisterEmailView: View {
                             .system(size: 28, weight: .bold, design: .default)
                         )
                         .bold()
-                        .foregroundColor(.black)
+                        .foregroundColor(.pokeWhiteFef)
                         .frame(maxWidth: 180, alignment: .center)
                         .padding(.horizontal, 30)
 
@@ -37,10 +37,10 @@ struct RegisterEmailView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 55)
                             .padding(.leading, 10)
-                            .background(.white)
+                            .background(.pokeWhiteFef)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 6)
-                                    .stroke(Color(.black), lineWidth: 2))
+                                RoundedRectangle(cornerRadius: 3)
+                                    .stroke(Color(.pokeWhiteFef), lineWidth: 2))
                     }
                     .padding(.horizontal, 30)
 
@@ -74,11 +74,10 @@ struct RegisterEmailView: View {
 
                         }
                     }
-                        .background(.white)
+                        .background(.pokeWhiteFef)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color(.black), lineWidth: 2)
-                        )
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(Color(.pokeWhiteFef), lineWidth: 2))
                         .padding(.horizontal, 30)
 
                     HStack {
@@ -88,17 +87,14 @@ struct RegisterEmailView: View {
                             Text("Registrar")
                                 .font(.headline)
                                 .padding(5)
-                                .foregroundStyle(.black)
-                                
-                                .background(Color.white)
+                                .foregroundStyle(.pokeBlack)
                                 .cornerRadius(10)
                         }
                         .bold()
-                        .foregroundStyle(.black)
                         .padding(5)
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
-                        .background(.white)
+                        .background(.pokeWhiteFef)
                         .padding(.horizontal, 30)
                         .cornerRadius(8)
                         .shadow(
@@ -113,6 +109,6 @@ struct RegisterEmailView: View {
 }
 
 #Preview {
-    SignInEmailView()
+    RegisterEmailView()
 }
 

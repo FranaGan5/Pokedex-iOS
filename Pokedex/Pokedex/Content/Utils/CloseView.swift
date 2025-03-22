@@ -14,7 +14,7 @@ struct CloseView: View {
             Button("", systemImage: "xmark"){
                 cerrar()
             }
-            .tint(.black)
+            .tint(Color.pokeBlack)
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.trailing, 45)
