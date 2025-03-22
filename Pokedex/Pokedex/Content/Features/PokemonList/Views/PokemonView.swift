@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import PokemonAPI
 
-struct HomeView: View {
-    @StateObject private var viewModel = PokemonViewModel()
+struct PokemonView: View {
     
+    @StateObject private var viewModelPokemonList = PokemonListViewModel()
     @State private var buscarNombre: String = ""
     
     let listadoPokemon = [
@@ -42,9 +41,9 @@ struct HomeView: View {
                     .padding(.vertical, 50)
 
                     LazyVGrid(columns: listadoPokemon, spacing: 50){
-                        ForEach(viewModel.pokemonDatos, id: \.name) { pokemon in
+                        ForEach(viewModelPokemonList.pokemons, id: \.name) { pokemon in
                             VStack {
-                                if let url = URL(string: pokemon.imageUrl) {
+                                if let url = pokemon.imageURL {
                                     AsyncImage(url: url) { image in
                                         image
                                             .resizable()
@@ -59,32 +58,12 @@ struct HomeView: View {
                                     .foregroundColor(.white)
                             }
                         }
-                    }.onAppear {
-                        viewModel.fetchListaPokemon()
+                    }.task {
+                        await viewModelPokemonList.fetchPokemons()
                     }
                     
                     Spacer()
-                    
-                    /*if let errorMessage = viewModel.errorMensaje {
-                        Text("Error: \(errorMessage)")
-                            .foregroundColor(.red)
-                    } else {
-                        VStack{
-                            
-                            Text("Nombre: \(viewModel.pokemonName)")
-                                .padding(10)
-                                .foregroundStyle(Color.white)
-                            Text("Alto: \(viewModel.pokemonHeight)")
-                                .padding(10)
-                                .foregroundStyle(Color.white)
-                            Text("Ancho: \(viewModel.pokemonWeight)")
-                                .padding(10)
-                                .foregroundStyle(Color.white)
-                            Text("Habilidades: \(viewModel.abilities.joined(separator: ", "))")
-                                .padding(10)
-                                .foregroundStyle(Color.white)
-                     }
-                        }.padding(.top, 20)*/
+                  
                     }
                 }
             }
@@ -92,5 +71,5 @@ struct HomeView: View {
     }
 
 #Preview {
-    HomeView()
+    PokemonView()
 }

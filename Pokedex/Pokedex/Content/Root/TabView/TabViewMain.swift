@@ -5,15 +5,15 @@ struct TabViewMain: View {
 
     var body: some View {
         TabView {
-            NotificacionesView().tabItem {
+            FavoritesPokemonView().tabItem {
                 Label("Multimedia", systemImage: "play.square")
             }
 
-            HomeView().tabItem {
+            PokemonView().tabItem {
                 Label("", image: "pokebola")
             }
 
-            PerfilView().tabItem {
+            MediaView().tabItem {
                 Label("Perfil", systemImage: "person.fill")
             }
         }

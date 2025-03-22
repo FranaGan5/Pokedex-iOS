@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CerrarView: View {
+struct CloseView: View {
     @Environment(\.dismiss) var cerrar
     var body: some View {
         HStack{
@@ -22,5 +22,5 @@ struct CerrarView: View {
 }
 
 #Preview {
-    CerrarView()
+    CloseView()
 }
