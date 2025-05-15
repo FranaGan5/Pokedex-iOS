@@ -1,3 +1,12 @@
+//
+//  PokemonListView.swift
+//  Pokedex
+//
+//  Created by FranaGan on 3/12/24.
+//
+
+
+
 import SwiftUI
 
 struct PokemonView: View {
@@ -20,20 +29,22 @@ struct PokemonView: View {
                 ScrollView {
                     LazyVGrid(columns: listadoPokemon, spacing: 50) {
                         ForEach(viewModelPokemonList.filteredPokemons, id: \.name) { pokemon in
-                            VStack {
-                                if let url = pokemon.imageURL {
-                                    AsyncImage(url: url) { image in
-                                        image
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 100, height: 100)
-                                    } placeholder: {
-                                        ProgressView()
+                            NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
+                                VStack {
+                                    if let url = pokemon.imageURL {
+                                        AsyncImage(url: url) { image in
+                                            image
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 100, height: 100)
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
                                     }
+                                    Text(pokemon.name)
+                                        .font(.headline)
+                                        .foregroundColor(.pokeBlack)
                                 }
-                                Text(pokemon.name)
-                                    .font(.headline)
-                                    .foregroundColor(.pokeBlack)
                             }
                         }
                     }
