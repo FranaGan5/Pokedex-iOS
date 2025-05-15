@@ -9,10 +9,11 @@ import Foundation
 
 struct PokemonItem: Codable {
     let name: String
-    let height: String
-    let weight: String
+    let height: Int
+    let weight: Int
     let abilities: [Ability]
     let sprites: Sprites
+    let stats: [Stat]
     
     struct Ability: Codable {
         let ability: Name
@@ -29,6 +30,10 @@ struct PokemonItem: Codable {
             case front_default = "front_default"
          
         }
+    }
+    struct Stat: Codable {
+        let base_stat: Int
+        let stat: Name
     }
 }
 

@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Pokedex
+
+  Created by FranaGan on 15/5/25.
+  
+*/
+height = "Altura";
+weight = "Peso";
+abilities = "Habilidades";
+stats = "Estadísticas";
+hp = "Salud";
+attack = "Ataque";
+defense = "Defensa";
+special-attack = "Ataque Especial";
+special-defense = "Defensa Especial";
+speed = "Velocidad";
