@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class SignInEmailViewModel: ObservableObject {
-    
-    @Published var email = ""
-    @Published var password = ""
-    @Published var errorMessage: String?
-    
-    func signIn() {
-            guard !email.isEmpty, !password.isEmpty else {
-                errorMessage = "⚠️ Email o contraseña no pueden estar vacíos."
-                return
-            }
-        
-            
-            Task {
-                do{
-                    let result = try await AuthenticationManager.shared.signIn(email: email, password: password)
-                    print("Success")
-                }catch{
-                    print("Error: \(error)")
-                }
-            }
-        }
-}
 
 struct SignInEmailView: View {
 
@@ -39,7 +15,7 @@ struct SignInEmailView: View {
 
     var body: some View {
         ZStack {
-            Color.white
+            Color.pokeWhiteFef
                 .ignoresSafeArea()
 
             VStack(alignment: .center) {
@@ -53,7 +29,7 @@ struct SignInEmailView: View {
                             .system(size: 28, weight: .bold, design: .default)
                         )
                         .bold()
-                        .foregroundColor(.black)
+                        .foregroundColor(.pokeBlack)
                         .frame(maxWidth: 180, alignment: .center)
                         .padding(.horizontal, 30)
 
@@ -62,10 +38,10 @@ struct SignInEmailView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 55)
                             .padding(.leading, 10)
-                            .background(.white)
+                            .background(.pokeWhiteFef)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 6)
-                                    .stroke(Color(.black), lineWidth: 2))
+                                    .stroke(Color(.pokeBlack), lineWidth: 2))
                     }
                     .padding(.horizontal, 30)
 
@@ -99,10 +75,10 @@ struct SignInEmailView: View {
 
                         }
                     }
-                        .background(.white)
+                        .background(.pokeWhiteFef)
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color(.black), lineWidth: 2)
+                                .stroke(Color(.pokeBlack), lineWidth: 2)
                         )
                         .padding(.horizontal, 30)
 
@@ -119,10 +95,10 @@ struct SignInEmailView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
                         .foregroundColor(.white)
-                        .background(.rojoPokebola)
+                        .background(Color("pokeRed_f03"))
                         .overlay(
                             RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color(.rojoPokebola), lineWidth: 2)
+                                .stroke(Color("pokeRed_f03"), lineWidth: 2)
                                 
                         )
                         .shadow(
