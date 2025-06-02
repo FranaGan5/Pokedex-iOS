@@ -23,8 +23,8 @@ El sistema de autenticación está basado en Firebase Authentication, lo que apo
 - Transiciones fluidas entre pantallas de autenticación
 
 <p align="center">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/login_view.png" width="250" alt="Pantalla de inicio" style="padding: 0 10px;">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/registrar_view.png" width="250" alt="Pantalla de registro" style="padding: 0 10px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/login_view.png" width="250" alt="Pantalla de inicio" style="padding: 0 50px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/registrar_view.png" width="250" alt="Pantalla de registro" style="padding: 0 50px;">
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/inicio_view.png" width="250" alt="Pantalla de inicio de sesión">
 </p>
 
@@ -45,8 +45,8 @@ El sistema de autenticación está basado en Firebase Authentication, lo que apo
 - Botón para añadir/quitar de favoritos con feedback visual inmediato
 
 <p align="center">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/lista_pokemon.png" width="250" alt="Lista de pokemons" style="padding: 0 10px;">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/busqueda_pokemon.png" width="250" alt="Busqueda de pokemon" style="padding: 0 10px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/lista_pokemon.png" width="250" alt="Lista de pokemons" style="padding: 0 50px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/busqueda_pokemon.png" width="250" alt="Busqueda de pokemon" style="padding: 0 50px;">
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/detalles_pokemon_view.png" width="250" alt="Detalles de pokemon">
 </p>
 
@@ -60,7 +60,7 @@ El sistema de autenticación está basado en Firebase Authentication, lo que apo
 - Sincronización automática entre todas las vistas de la aplicación
   
 <p align="center">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/favoritos_view.png" width="250" alt="Lista de favoritos" style="padding: 0 10px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/favoritos_view.png" width="250" alt="Lista de favoritos" style="padding: 0 50px;">
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/deslizar_delete.png" width="250" alt="Deslizar para borrar de favoritos">
 </p>
 
