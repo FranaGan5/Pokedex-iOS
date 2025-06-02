@@ -12,6 +12,14 @@ Pokédex es una aplicación iOS moderna para explorar el mundo Pokémon, desarro
 
 ## 📱 Capturas de pantalla
 
+### Sistema de Autenticación
+La aplicación cuenta con un sistema completo de autenticación usando Firebase:
+
+<p align="center">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/login_view.png" width="250" alt="Pantalla de inicio">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/registrar_view.png" width="250" alt="Pantalla de registro">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/inicio_view.png" width="250" alt="Pantalla de inicio de sesión">
+</p>
 
 
 
