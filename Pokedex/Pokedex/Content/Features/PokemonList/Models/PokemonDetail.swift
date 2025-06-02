@@ -41,7 +41,7 @@ struct PokemonList: Decodable {
     let results: [PokemonListItem]
 }
 
-struct PokemonListItem: Identifiable, Decodable {
+struct PokemonListItem: Identifiable, Codable, Hashable {
     let name: String
     let url: String
 

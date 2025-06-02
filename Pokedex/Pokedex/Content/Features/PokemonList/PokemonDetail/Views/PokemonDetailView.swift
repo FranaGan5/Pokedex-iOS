@@ -39,8 +39,11 @@ struct PokemonDetailView: View {
                         systemImage: favoritesManager.isFavorite(pokemon) ? "heart.fill" : "heart"
                     )
                     .labelStyle(.titleAndIcon)
+                    .foregroundStyle(.pokeBlack)
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(favoritesManager.isFavorite(pokemon) ? .pokeRedF03 : .pokeBlue17C)
+                
                 
                 
                 HStack {

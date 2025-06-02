@@ -17,21 +17,23 @@ struct MediaView: View {
                         }
                         .scrollContentBackground(.hidden)
                     }
-                    VStack {
+                VStack (alignment: .center){
                         HStack {
-                            Button("Cerrar Sesión") {
+                            Button("Cerrar sesión") {
                                 viewModel.logOut(authViewModel: AuthViewModel())
                             }
-                            .padding(.bottom, 30)
                             .foregroundColor(.red)
                             
                             Image("boton-cerrar")
                                 .resizable()
                                 .frame(width: 25, height: 25)
-                                .padding(.bottom, 30)
                                 .foregroundColor(.red)
                         }
                     }
+                    .padding()
+                    .background(.pokeBlack)
+                    .cornerRadius(8)
+                    
                 }
             }
         }
