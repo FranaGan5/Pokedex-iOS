@@ -13,24 +13,54 @@ Pokédex es una aplicación iOS moderna para explorar el mundo Pokémon, desarro
 ## 📱 Capturas de pantalla
 
 ### Sistema de Autenticación
-La aplicación cuenta con un sistema completo de autenticación usando Firebase:
+El sistema de autenticación está basado en Firebase Authentication, lo que aporta un flujo seguro y escalable para registro e inicio de sesión.
+
+#### Detalles técnicos:
+- Integración completa con Firebase Auth
+- Validación de campos en tiempo real
+- Persistencia de sesión entre reinicios de la aplicación
+- Manejo de errores con mensajes descriptivos
+- Transiciones fluidas entre pantallas de autenticación
 
 <p align="center">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/login_view.png" width="250" alt="Pantalla de inicio">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/registrar_view.png" width="250" alt="Pantalla de registro">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/login_view.png" width="250" alt="Pantalla de inicio" style="padding: 0 10px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/registrar_view.png" width="250" alt="Pantalla de registro" style="padding: 0 10px;">
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/inicio_view.png" width="250" alt="Pantalla de inicio de sesión">
 </p>
 
 ### Buscar un pókemon y mostrar sus detalles
+
+#### Características de la lista y búsqueda:
+- Implementación de `LazyVGrid` para carga eficiente
+- Búsqueda en tiempo real con filtrado instantáneo
+- Carga de imágenes asíncrona con `AsyncImage`
+- Interfaz responsiva que se adapta a diferentes tamaños de pantalla
+- Diseño visual con fondos temáticos de Pokémon
+
+#### Detalles del Pokémon:
+- Visualización completa de estadísticas con barras de progreso animadas
+- Colores específicos para cada tipo de estadística
+- Información detallada de habilidades con traducción al español
+- Implementación de paralelismo para cargar traducciones simultáneamente
+- Botón para añadir/quitar de favoritos con feedback visual inmediato
+
 <p align="center">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/lista_pokemon.png" width="250" alt="Lista de pokemons">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/busqueda_pokemon.png" width="250" alt="Busqueda de pokemon">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/lista_pokemon.png" width="250" alt="Lista de pokemons" style="padding: 0 10px;">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/busqueda_pokemon.png" width="250" alt="Busqueda de pokemon" style="padding: 0 10px;">
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/detalles_pokemon_view.png" width="250" alt="Detalles de pokemon">
 </p>
 
 ### Lista de favoritos, navegationLink hacia el pókemon y su detalle. Opción de borrar con .swipe
+
+#### Sistema de favoritos:
+- Persistencia de datos mediante `UserDefaults`
+- Implementación de `ObservableObject` para actualización en tiempo real
+- Acciones de deslizamiento (swipe) para eliminar favoritos
+- Navegación directa a los detalles del Pokémon
+- Sincronización automática entre todas las vistas de la aplicación
+  
 <p align="center">
-  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/favoritos_view.png" width="250" alt="Lista de favoritos">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/favoritos_view.png" width="250" alt="Lista de favoritos" style="padding: 0 10px;">
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/deslizar_delete.png" width="250" alt="Deslizar para borrar de favoritos">
 </p>
 
@@ -47,15 +77,6 @@ La aplicación cuenta con un sistema completo de autenticación usando Firebase:
 - iOS 16.0+
 - Xcode 14.0+
 - Swift 5.5+
-
-## 🚀 Instalación
-
-1. Clona este repositorio
-2. Abre `Pokedex.xcodeproj` en Xcode
-3. Configura tu Firebase (opcional):
-   - Crea un proyecto en Firebase
-   - Añade tu propia configuración `GoogleService-Info.plist`
-4. Compila y ejecuta en el simulador o dispositivo
 
 ## 📊 Arquitectura
 
@@ -89,3 +110,4 @@ Esta es la versión 1.0 de Pokédex, que incluye las funcionalidades esenciales.
 - Comparación entre Pokémon
 - Modificar la sección del perfil
 - Modo oscuro
+- Filtrado por tipos de Pokémon
