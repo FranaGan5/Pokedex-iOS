@@ -12,7 +12,7 @@ Pokédex es una aplicación iOS moderna para explorar el mundo Pokémon, desarro
 
 ## 📱 Capturas de pantalla
 
-### Sistema de Autenticación
+### -Sistema de Autenticación
 El sistema de autenticación está basado en Firebase Authentication, lo que aporta un flujo seguro y escalable para registro e inicio de sesión.
 
 #### Detalles técnicos:
@@ -29,7 +29,7 @@ El sistema de autenticación está basado en Firebase Authentication, lo que apo
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/inicio_view.png" width="250" alt="Pantalla de inicio de sesión">
 </p>
 
-### Buscar un pókemon y mostrar sus detalles
+### -Buscar un pókemon y mostrar sus detalles
 
 #### Características de la lista y búsqueda:
 - Implementación de `LazyVGrid` para carga eficiente
@@ -52,7 +52,7 @@ El sistema de autenticación está basado en Firebase Authentication, lo que apo
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/detalles_pokemon_view.png" width="250" alt="Detalles de pokemon">
 </p>
 
-### Lista de favoritos, navegationLink hacia el pókemon y su detalle. Opción de borrar con .swipe
+### -Lista de favoritos, navegationLink hacia el pókemon y su detalle. Opción de borrar con .swipe
 
 #### Sistema de favoritos:
 - Persistencia de datos mediante `UserDefaults`
