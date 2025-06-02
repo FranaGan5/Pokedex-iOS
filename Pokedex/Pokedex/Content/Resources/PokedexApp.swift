@@ -22,11 +22,13 @@ class AppDelegate: NSObject, UIApplicationDelegate{
 struct PokedexApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var favoritesManager = FavoritesPokemonManager()
 
     var body: some Scene {
         WindowGroup {
             if authViewModel.user != nil {
                 TabViewMain()
+                    .environmentObject(favoritesManager)
             } else {
                 AuthenticationView()
             }

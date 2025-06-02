@@ -6,7 +6,7 @@ struct TabViewMain: View {
     var body: some View {
         TabView {
             FavoritesPokemonView().tabItem {
-                Label("Multimedia", systemImage: "play.square")
+                Label("Favoritos", systemImage: "heart.fill")
             }
 
             PokemonView().tabItem {

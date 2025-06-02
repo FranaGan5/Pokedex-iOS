@@ -10,6 +10,8 @@ import SwiftUI
 struct PokemonDetailView: View {
     let pokemon: PokemonListItem
     @StateObject private var viewModel = PokemonDetailViewModel()
+    @EnvironmentObject var favoritesManager: FavoritesPokemonManager
+
     
     var body: some View {
         ScrollView {
@@ -28,6 +30,18 @@ struct PokemonDetailView: View {
                 Text(viewModel.name)
                     .font(.largeTitle)
                     .bold()
+                
+                Button {
+                    favoritesManager.toggleFavorite(pokemon)
+                } label: {
+                    Label(
+                        favoritesManager.isFavorite(pokemon) ? "Eliminar de favoritos" : "Añadir a favoritos",
+                        systemImage: favoritesManager.isFavorite(pokemon) ? "heart.fill" : "heart"
+                    )
+                    .labelStyle(.titleAndIcon)
+                }
+                .buttonStyle(.borderedProminent)
+                
                 
                 HStack {
                     Text("\(Text("height")): \(viewModel.height)")
@@ -110,4 +124,6 @@ private extension PokemonDetailView {
 
 #Preview {
     PokemonDetailView(pokemon: PokemonListItem(name: "pikachu", url: "https://pokeapi.co/api/v2/pokemon/25/"))
+        .environmentObject(FavoritesPokemonManager())
 }
+
