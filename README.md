@@ -21,7 +21,18 @@ La aplicación cuenta con un sistema completo de autenticación usando Firebase:
   <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/inicio_view.png" width="250" alt="Pantalla de inicio de sesión">
 </p>
 
+### Buscar un pókemon y mostrar sus detalles
+<p align="center">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/lista_pokemon.png" width="250" alt="Lista de pokemons">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/busqueda_pokemon.png" width="250" alt="Busqueda de pokemon">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/detalles_pokemon_view.png" width="250" alt="Detalles de pokemon">
+</p>
 
+### Lista de favoritos, navegationLink hacia el pókemon y su detalle. Opción de borrar con .swipe
+<p align="center">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/favoritos_view.png" width="250" alt="Lista de favoritos">
+  <img src="https://github.com/FranaGan5/Pokedex-iOS/blob/main/recursos/deslizar_delete.png" width="250" alt="Deslizar para borrar de favoritos">
+</p>
 
 ## 🛠️ Tecnologías
 
